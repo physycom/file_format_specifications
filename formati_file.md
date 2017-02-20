@@ -33,6 +33,15 @@ corrispondenza di accelerazioni verso l'alto(il basso). Il timestamp è
 espresso come numero di **secondi a partire dal 1/1/2000 UTC +1** (fuso
 di Roma).
 
+Esempio
+-------
+```
+#  timestamp(s)  #  acc_x (g)  #  acc_y (g)  #  acc_z (g)  #
+  518716448.047      -0.048         0.015         0.993
+  518716448.057      -0.044         0.045         1.003
+  518716448.067      -0.033         0.036         1.015
+```
+
 Dettaglio
 ---------
 
@@ -79,6 +88,15 @@ angolari sono riportate in **gradi sessagesimali al secondo** assumendo
 una convenzione **destrorsa** per l'attribuzione dei segni delle
 velocità angolari. Il timestamp è espresso come numero di **secondi a
 partire dal 1/1/2000 UTC +1** (fuso di Roma).
+
+Esempio
+-------
+```
+#  timestamp(s)  #  w_x (dps)  #  w_y (dps)  #  w_z (dps)  #
+  518716448.047       0.567        0.567         1.217
+  518716448.057       0.067        0.267         1.300
+  518716448.067      -0.117        0.500         1.517
+```
 
 Dettaglio
 ---------
@@ -135,6 +153,18 @@ state trattate mediante due schemi di riempimento:
 -   ***Modalità interpolated :*** ogni riga contiene valori sempre
     diversi che vengono interpolati in maniera lineare per rendere più
     smooth l'andamento dei dati stessi.
+
+Esempio
+-------
+```
+#    timestamp    #  speed #     ax   #    ay   #    az   #    gx   #    gy   #    gz   #   |a|   #  timestamp_rel #
+  518716448.0567    5.9580   -0.04400   0.04500   1.00300   0.06667	  0.26667   1.30000   1.00497       0.0099
+  518716448.0666    5.9580   -0.03300   0.03600   1.01500   0.11667	  0.50000   1.51667   1.01617       0.0198
+  518716448.0766    5.9580   -0.03500   0.00400   1.00800   0.00000	  0.73333   1.55000   1.00862       0.0298
+  518716448.0865    5.9580   -0.04600   0.00400   0.99300   0.31667	  0.63333   1.26667   0.99407       0.0397
+```
+
+
 
 Dettaglio
 ---------
@@ -197,6 +227,16 @@ state trattate mediante due schemi di riempimento:
 -   ***Modalità interpolated :*** ogni riga contiene valori sempre
     diversi che vengono interpolati in maniera lineare per rendere più
     smooth l'andamento dei dati stessi.
+
+Esempio
+-------
+```
+#    timestamp   #    lat   #   lon    #    alt   #  heading  #  speed  #     ax   #   ay    #    az   #    gx    #    gy   #    gz   #   |a|  # timestamp_rel  #
+  518716448.0567   44.49972   11.35368   45.86800   294.00000   5.95800    0.04400   0.04500   1.00300    0.06667   0.26667   1.30000   1.00497       0.0099
+  518716448.0666   44.49972   11.35368   45.86800   294.00000   5.95800	  -0.03300   0.03600   1.01500   -0.11667   0.50000   1.51667   1.01617       0.0198
+  518716448.0766   44.49972   11.35368   45.86800   294.00000   5.95800   -0.03500   0.00400   1.00800    0.00000   0.73333   1.55000   1.00862       0.0298
+```
+
 
 Dettaglio
 ---------
@@ -266,6 +306,23 @@ I campi sono suddivisi in due tipologie: obbligatori e opzionali. I
 campi obbligatori sono tali in prospettiva di analisi o visualizzazione
 dei dati stessi. I campi opzionali arricchiscono tipicamente la
 visualizzazione fornendo informazioni aggiuntive.
+
+Esempio
+-------
+```
+[
+    {
+        "alt":45.0,
+        "date":"8/6/2016 16:54:08.10",
+        "fix":1,
+        "heading":294.0,
+        "lat":44.4997189,
+        "lon":11.3536798,
+        "speed":4.9176,
+        "timestamp":518716448.1001034
+    }
+]
+```
 
 Dettaglio
 ---------
