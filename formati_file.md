@@ -6,9 +6,9 @@ CHANGELOG
 |  13/10/2015   | 1               | A. Fabbri, S. Sinigardi   | Definizione standard per acc e gyro                                               |
 |  27/10/2015   | 2               | A. Fabbri                 | Definizione standard per dati GNSS come CSV                                       |
 |  10/11/2015   | 3               | S. Sinigardi              | Upgrade standard dati GNSS al formato JSON                                        |
-|  10/3/2016    | 4               | S. Sinigardi              | Definizione standard dati inerziali                                               |
-|  22/3/2016    | 5               | A. Fabbri                 | Upgrade standard dati inerziali: aggiunta del campo speed, timestamp relativo     |
-|  19/7/2016    | 6               | A. Fabbri, S. Sinigardi   | Definizione standard dati inerziali georeferenziati                               |
+|  10/03/2016   | 4               | S. Sinigardi              | Definizione standard dati inerziali                                               |
+|  22/03/2016   | 5               | A. Fabbri                 | Upgrade standard dati inerziali: aggiunta del campo speed, timestamp relativo     |
+|  19/07/2016   | 6               | A. Fabbri, S. Sinigardi   | Definizione standard dati inerziali georeferenziati                               |
 |  13/10/2016   | 7               | A. Fabbri, S. Sinigardi   | Upgrade standard dati inerziali georeferenziati: aggiunta modalità interpolated   |
 
 Formato dati accelerometrici
@@ -156,6 +156,7 @@ state trattate mediante due schemi di riempimento:
 
 Esempio
 -------
+<!--
 ```
 #    timestamp    #  speed #     ax   #    ay   #    az   #    gx   #    gy   #    gz   #   |a|   #  timestamp_rel #
   518716448.0567    5.9580   -0.04400   0.04500   1.00300   0.06667	  0.26667   1.30000   1.00497       0.0099
@@ -163,7 +164,14 @@ Esempio
   518716448.0766    5.9580   -0.03500   0.00400   1.00800   0.00000	  0.73333   1.55000   1.00862       0.0298
   518716448.0865    5.9580   -0.04600   0.00400   0.99300   0.31667	  0.63333   1.26667   0.99407       0.0397
 ```
-
+-->
+```
+# timestamp # speed #  ax   #   ay  #   az  #   gx  #   gy  #   gz  #  |a|  #  timestamp_rel #
+  16448.05    5.958   0.044   0.045   1.003   0.066   0.266   1.300   1.004       0.009
+  16448.06    5.958   0.033   0.036   1.015   0.116   0.500   1.516   1.016       0.019
+  16448.07    5.958   0.035   0.004   1.008   0.000   0.733   1.550   1.008       0.029
+  16448.08    5.958   0.046   0.004   0.993   0.316   0.633   1.266   0.994       0.039
+```
 
 
 Dettaglio
@@ -230,17 +238,24 @@ state trattate mediante due schemi di riempimento:
 
 Esempio
 -------
+<!--
 ```
 #    timestamp   #    lat   #   lon    #    alt   #  heading  #  speed  #     ax   #   ay    #    az   #    gx    #    gy   #    gz   #   |a|  # timestamp_rel  #
   518716448.0567   44.49972   11.35368   45.86800   294.00000   5.95800    0.04400   0.04500   1.00300    0.06667   0.26667   1.30000   1.00497       0.0099
   518716448.0666   44.49972   11.35368   45.86800   294.00000   5.95800	  -0.03300   0.03600   1.01500   -0.11667   0.50000   1.51667   1.01617       0.0198
   518716448.0766   44.49972   11.35368   45.86800   294.00000   5.95800   -0.03500   0.00400   1.00800    0.00000   0.73333   1.55000   1.00862       0.0298
 ```
+-->
+```
+#  time  # lat  # lon  # alt  # head # speed # ax  # ay  # az  # gx  # gy  # gz # |a| # t_rel #
+  448.05   44.4   11.3   45.8    12      5     0.4   0.4   1.0   0.6   0.2   1.3  1.0   0.00
+  448.06   44.4   11.3   45.8    13      5     0.3   0.3   1.0   0.1   0.5   1.5  1.0   0.01
+  448.07   44.4   11.3   45.8    18      5     0.3   0.0   1.0   0.0   0.7   1.5  1.0   0.02
+```
 
 
 Dettaglio
 ---------
-
 | Offset   | Nome              | Tipo    | Dimensioni        | Note                                      |
 | -------- | ----------------- | ------- | ----------------- | ----------------------------------------- |
 | 0        | Timestamp         | Float   | Secondi           | Dal 1/1/2000 UTC+1                        |
@@ -333,14 +348,14 @@ Dettaglio
 | Latitudine                      | Obbligatorio          | lat             | Float    | Gradi           | Da -90 a +90                                                                        |
 | Longitudine                     | Obbligatorio          | lon             | Float    | Gradi           | Da -180 a +180                                                                      |
 | Timestamp                       | Obbligatorio          | timestamp       | Float    | Secondi         | Dal 1/1/2000 UTC +1                                                                 |
-| Velocità                        | Obbligatorio          | speed           | Float    | Metri/Secondo   | json incapsulato contenente velocità minima, massima e media dal record precedente  |
+| Velocità                        | Obbligatorio          | speed           | Float    | Metri / Secondi | json incapsulato contenente velocità minima, massima e media dal record precedente  |
 | Direzione                       | Opzionale             | heading         | Float    | Gradi           | Dal nord magnetico in senso orario, valori da 0 a 360                               |
 | Data e ora                      | Opzionale             | date            | Testo    |                 | UTC +1                                                                              |
 | Qualità FIX                     | Opzionale             | fix             | Intero   |                 | Da 0 a 3, secondo standard API modulo GNSS                                          |
 | IMEI                            | Opzionale             | imei            | Testo    |                 | Identificativo OBU                                                                  |
 | Distanza dal record precendente | Opzionale             | delta\_dist     | Float    | Metri           | Calcolata dal record precedente tenendo conto della correzione geodetica            |
 | Causa                           | Opzionale             | enabling        | Testo    |                 | Identificativo di presenza del record                                               |
-| Indice globale di acquisizione  | Opzionale             | global\_index   | Intero   |                 | Contatore incrementale indice di acquisizione                                       |
+| Indice globale di acquisizione  | Opzionale             | global\_ index  | Intero   |                 | Contatore incrementale indice di acquisizione                                       |
 
 Output
 ------
