@@ -180,7 +180,7 @@ Dettaglio
 | Offset   | Nome              | Tipo    | Dimensioni        | Note                 |
 | -------- | ----------------- | ------- | ----------------- | -------------------- |
 | 0        | Timestamp         | Float   | Secondi           | Dal 1/1/2000 UTC+1   |
-| 1        | Velocità          | Float   | Metri / Secondi   |                      |
+| 1        | Velocità          | Float   | Kilometri / Ore   |                      |
 | 2        | Accelerazione X   | Float   | Unità di g        | Inerziale            |
 | 3        | Accelerazione Y   | Float   | Unità di g        | Inerziale            |
 | 4        | Accelerazione Z   | Float   | Unità di g        | Inerziale            |
@@ -263,7 +263,7 @@ Dettaglio
 | 2        | Longitudine       | Float   | Gradi             | Da -180 a 180                             |
 | 3        | Altitudine        | Float   | Metri             | Sul livello del mare, riferimento WGS     |
 | 4        | Orientamento      | Float   | Gradi             | Misurati dal nord magnetico, da 0 a 360   |
-| 5        | Velocità          | Float   | Metri / Secondi   |                                           |
+| 5        | Velocità          | Float   | Kilometri / Ore   |                                           |
 | 6        | Accelerazione X   | Float   | Unità di g        | Inerziale                                 |
 | 7        | Accelerazione Y   | Float   | Unità di g        | Inerziale                                 |
 | 8        | Accelerazione Z   | Float   | Unità di g        | Inerziale                                 |
@@ -348,7 +348,7 @@ Dettaglio
 | Latitudine                      | Obbligatorio          | lat             | Float    | Gradi           | Da -90 a +90                                                                        |
 | Longitudine                     | Obbligatorio          | lon             | Float    | Gradi           | Da -180 a +180                                                                      |
 | Timestamp                       | Obbligatorio          | timestamp       | Float    | Secondi         | Dal 1/1/2000 UTC +1                                                                 |
-| Velocità                        | Obbligatorio          | speed           | Float    | Metri / Secondi | json incapsulato contenente velocità minima, massima e media dal record precedente  |
+| Velocità                        | Obbligatorio          | speed           | Float    | Kilometri / Ore | json incapsulato contenente velocità minima, massima e media dal record precedente  |
 | Direzione                       | Opzionale             | heading         | Float    | Gradi           | Dal nord magnetico in senso orario, valori da 0 a 360                               |
 | Data e ora                      | Opzionale             | date            | Testo    |                 | UTC +1                                                                              |
 | Qualità FIX                     | Opzionale             | fix             | Intero   |                 | Da 0 a 3, secondo standard API modulo GNSS                                          |
