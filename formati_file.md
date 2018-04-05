@@ -1,3 +1,10 @@
+# Table of Contents
+1. [Formato dati accelerometrici](#formato-dati-accelerometrici)
+2. [Formato dati giroscopici](#formato-dati-giroscopici)
+3. [Formato dati inerziali](#formato-dati-inerziali)
+4. [Formato dati inerziali georeferenziati](#formato-dati-inerziali-georeferenziati)
+5. [Formato dati di geoposizionamento](#formato-dati-di-geoposizionamento)
+
 CHANGELOG
 =========
 
