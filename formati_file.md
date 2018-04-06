@@ -254,7 +254,7 @@ Esempio
 ```
 -->
 ```
-#  time  # lat  # lon  # alt  # head # speed # ax  # ay  # az  # gx  # gy  # gz # |a| # t_rel #
+#  timestamp  # lat  # lon  # alt  # head # speed # ax  # ay  # az  # gx  # gy  # gz # |a| # t_rel #
   448.05   44.4   11.3   45.8    12      5     0.4   0.4   1.0   0.6   0.2   1.3  1.0   0.00
   448.06   44.4   11.3   45.8    13      5     0.3   0.3   1.0   0.1   0.5   1.5  1.0   0.01
   448.07   44.4   11.3   45.8    18      5     0.3   0.0   1.0   0.0   0.7   1.5  1.0   0.02
